@@ -1,0 +1,24 @@
+{
+  "name": "wasm-module-template",
+  "version": "0.0.0",
+  "description": "A template for WASM/Javascript bundles written in Rust.",
+  "private": true,
+  "devDependencies": {
+    "webpack": "^5.101.3",
+    "webpack-cli": "^6.0.1"
+  },
+  "scripts": {
+    "compile-release": "cargo build --target wasm32-unknown-unknown --release --target-dir ./build/cargo/",
+    "optimize-release": "wasm-opt -O2 ./build/cargo/wasm32-unknown-unknown/release/module.wasm --output ./build/cargo/wasm32-unknown-unknown/release/module.wasm",
+    "bind-release": "wasm-bindgen ./build/cargo/wasm32-unknown-unknown/release/module.wasm --out-dir ./build/wasm-bindgen/pkg --target web --no-typescript --remove-producers-section",
+    "build-release": "yarn compile-release && yarn optimize-release && yarn bind-release && yarn webpack --mode=production",
+
+    "compile-debug": "cargo build --target wasm32-unknown-unknown --target-dir ./build/cargo/",
+    "bind-debug": "wasm-bindgen ./build/cargo/wasm32-unknown-unknown/debug/module.wasm --out-dir ./build/wasm-bindgen/pkg --target web --no-typescript --remove-producers-section",
+    "build-debug": "yarn compile-debug && yarn bind-debug && yarn webpack --mode=development",
+
+    "build": "yarn build-release",
+    "clean": "rm -rf ./build ./target",
+    "dev": "yarn build-debug"
+  }
+}

@@ -1,0 +1,13 @@
+# macOS Metadata
+.DS_Store
+
+# Package modules
+/node_modules
+
+# Lock files
+yarn.lock
+Cargo.lock
+
+# Build files
+/build
+/target
