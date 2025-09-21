@@ -18,7 +18,7 @@
     "build-debug": "yarn compile-debug && yarn bind-debug && yarn webpack --mode=development",
 
     "build": "yarn build-release",
-    "clean": "rm -rf ./build ./target",
+    "clean": "rm -rf ./build",
     "dev": "yarn build-debug"
   }
 }

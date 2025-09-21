@@ -1,0 +1,35 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Yarn: Build Release (wasm32)",
+            "type": "npm",
+            "script": "build-release",
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "problemMatcher": [
+                "$rustc"
+            ]
+        },
+        {
+            "label": "Yarn: Build Debug (wasm32)",
+            "type": "npm",
+            "script": "build-debug",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [
+                "$rustc"
+            ]
+        },
+        {
+            "label": "Yarn: Clean Build Files",
+            "type": "npm",
+            "script": "clean",
+            "problemMatcher": []
+        }
+    ]
+}
