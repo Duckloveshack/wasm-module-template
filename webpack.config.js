@@ -4,7 +4,7 @@ module.exports = (env, argv) => {
   const distPath = argv.mode === 'development' ? 'debug' : 'release';
 
   return {
-    entry: './src/index.js',
+    entry: './src/js/index.ts',
     output: {
       path: path.resolve(__dirname, 'build', 'dist', distPath),
       filename: 'module.js',
@@ -19,6 +19,11 @@ module.exports = (env, argv) => {
           test: /\.wasm$/,
           type: 'asset/inline',
         },
+        {
+          test: /\.ts$/,
+          use: 'ts-loader',
+          exclude: "/node_modules/"
+        }
       ],
     },
     experiments: {

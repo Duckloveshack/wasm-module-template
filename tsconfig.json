@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "target": "es2024",
+    "noImplicitAny": true,
+    "removeComments": true,
+    "preserveConstEnums": true,
+    "sourceMap": true,
+    "allowJs": true,
+    "outDir": "build/typescript",
+  },
+  "include": [
+    "src/js/**/*",
+    "build/dist/wasm-bindgen/**/*"
+  ],
+  "exclude": [
+    "build/**/*"
+  ],
+}
